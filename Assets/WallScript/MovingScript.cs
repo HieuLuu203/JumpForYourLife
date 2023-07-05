@@ -49,7 +49,7 @@ public class MovingScript : MonoBehaviour
     }
     void OnCollisionExit2D (Collision2D collision)
     {
-        GetComponentInChildren<BoxCollider2D>().enabled = false;
+        transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         collision.collider.transform.SetParent(null);
     

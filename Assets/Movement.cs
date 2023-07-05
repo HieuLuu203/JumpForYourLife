@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    bool isLanded;
+    private bool isLanded;
+    private bool isPerfect;
     [SerializeField] private Rigidbody2D myRigidbody;
-   
+    
     void Awake()
     {
         
@@ -26,7 +27,14 @@ public class Movement : MonoBehaviour
         {
             isLanded = true;
             CameraScript.Instance.followPlayer();
-            return;
+            if (isPerfect)
+            {
+                ScoreManager.Instance.addScore(2);
+            }
+            else
+            {
+                ScoreManager.Instance.addScore(1);
+            }
         }
         
     }
@@ -37,7 +45,13 @@ public class Movement : MonoBehaviour
         {
             UI_Controller.Instance.getPerfectUI();
             Debug.Log("Pf");
+            isPerfect = true;
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        isPerfect = false;
     }
     private void OnCollisionStay2D(Collision2D collision)
     {

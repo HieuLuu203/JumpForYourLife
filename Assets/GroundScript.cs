@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class GroundScript : MonoBehaviour
 {
     GameObject target;
+    [SerializeField] private GameObject GameOverPanel;
     private void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player");
@@ -17,7 +19,9 @@ public class GroundScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Time.timeScale = 0;
         target.SetActive(false);
+        StartCoroutine("GameOver");
         Debug.Log("triggerd");
     }
 
@@ -26,4 +30,12 @@ public class GroundScript : MonoBehaviour
     {
         
     }
+
+    private IEnumerator GameOver()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        GameOverPanel.SetActive(true);
+    }
+
+
 }
