@@ -43,12 +43,18 @@ public class ScoreManager : MonoBehaviour
         {
             streak = 0;
             score++;
+            Debug.Log(1);
         }
         if (type == 2)
         {
             streak++;
             score += streak + 1;
+            Debug.Log(2);
         }
     }
 
+    public int getScore()
+    {
+        return score;
+    }
 }

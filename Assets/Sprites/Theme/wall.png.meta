@@ -170,6 +170,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: wall_2
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 300
+        width: 247
+        height: 88
+      alignment: 9
+      pivot: {x: 0.5217285, y: 0.9012323}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d27628565500e24895d9ffb826596be
+      internalID: 1169037238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -183,6 +204,7 @@ TextureImporter:
     nameFileIdTable:
       wall_0: 1465632737
       wall_1: -2142649769
+      wall_2: 1169037238
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

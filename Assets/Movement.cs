@@ -21,7 +21,17 @@ public class Movement : MonoBehaviour
         WallSpawnScript.Instance.spawnWall(5);
     }
 
-    void OnCollisionEnter2D (Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Middle Check")
+        {
+            UI_Controller.Instance.getPerfectUI();
+            Debug.Log("Pf");
+            isPerfect = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Wall")
         {
@@ -36,18 +46,9 @@ public class Movement : MonoBehaviour
                 ScoreManager.Instance.addScore(1);
             }
         }
-        
+
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Middle Check")
-        {
-            UI_Controller.Instance.getPerfectUI();
-            Debug.Log("Pf");
-            isPerfect = true;
-        }
-    }
 
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -67,6 +68,7 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) == true && isLanded == true)
         {
+            isPerfect = false;
             myRigidbody.velocity = Vector2.up * 2;
             //Debug.Log(myRigidbody.velocity.y);
             isLanded = false;

@@ -8,6 +8,9 @@ TagManager:
   - BG
   - Ground
   - Middle Check
+  - Hidden Button
+  - Panel
+  - Button
   layers:
   - Default
   - TransparentFX
@@ -50,4 +53,13 @@ TagManager:
     locked: 0
   - name: Wall
     uniqueID: 3850130583
+    locked: 0
+  - name: Panel
+    uniqueID: 3576097355
+    locked: 0
+  - name: Hidden Button
+    uniqueID: 2817042061
+    locked: 0
+  - name: Buttom
+    uniqueID: 2896749073
     locked: 0

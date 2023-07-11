@@ -27,6 +27,7 @@ public class WallSpawnScript : MonoBehaviour
         baseDepth = depth;
     }
     public int getCnt () { return cnt; } 
+    public void addCnt() { cnt++; }
 
     // Start is called before the first frame update
     void Start()

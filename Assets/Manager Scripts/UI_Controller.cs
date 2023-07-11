@@ -62,4 +62,18 @@ public class UI_Controller : MonoBehaviour
         SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
     }
 
+    public void MainMenu()
+    {
+        PlayerPrefs.SetInt("score", ScoreManager.Instance.getScore());
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }   
+
+    public Sprite getUI(string name)
+    {
+        if (name == "crackWall")
+            return crackWall;
+        else return null;
+    }
+
 }

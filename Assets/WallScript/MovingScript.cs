@@ -12,9 +12,12 @@ public class MovingScript : MonoBehaviour
 
     [SerializeField] private GameObject ways;
     [SerializeField] private Transform[] wayPoints;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private int pointIndex;
     private int pointCount;
     private int direction = 1;
+    private int touchWall;
+    private bool hasPlayer;
     //Start is called before the first frame update
 
 
@@ -39,16 +42,20 @@ public class MovingScript : MonoBehaviour
 
     private void OnEnable()
     {
+        hasPlayer = false;
         pointIndex = WallSpawnScript.Instance.getCnt() % 2;
-        speed = Random.Range(4, 5);
+        speed = 4 + (float) ScoreManager.Instance.getScore() / 20;
+        touchWall = 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.collider.transform.SetParent(transform);
+        hasPlayer = true;
     }
     void OnCollisionExit2D (Collision2D collision)
     {
+        hasPlayer = false;
         transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         collision.collider.transform.SetParent(null);
@@ -70,19 +77,35 @@ public class MovingScript : MonoBehaviour
   
     }
 
-    void NextPoint ()
+    private void NextPoint ()
     {
         if (pointIndex == pointCount - 1)
         {
+            checkTouchWall();
             direction = -1;
         }
 
         if (pointIndex == 0)
         {
+            checkTouchWall();
             direction = 1;
         }
 
         pointIndex += direction;
         targetPos = wayPoints[pointIndex].transform.position;
     }
+
+    private void checkTouchWall()
+    {
+        WallSpawnScript.Instance.addCnt();
+        if (hasPlayer) touchWall++;
+        if (touchWall == 1)
+            GetComponent<SpriteRenderer>().sprite = UI_Controller.Instance.getUI("crackWall");
+        else if (touchWall == 2)
+        {
+            transform.GetChild(1).SetParent(null);
+            this.gameObject.SetActive(false);
+
+        }
+    }    
 }
