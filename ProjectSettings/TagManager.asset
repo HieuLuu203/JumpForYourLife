@@ -11,6 +11,7 @@ TagManager:
   - Hidden Button
   - Panel
   - Button
+  - CharacterImage
   layers:
   - Default
   - TransparentFX
@@ -48,14 +49,14 @@ TagManager:
   - name: BG
     uniqueID: 4110981639
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Wall
     uniqueID: 3850130583
     locked: 0
   - name: Panel
     uniqueID: 3576097355
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Hidden Button
     uniqueID: 2817042061

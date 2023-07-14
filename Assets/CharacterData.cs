@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     public string characterName;
-    private int ID;
-    public Sprite sprite;
+    public int ID;
+    public Sprite sprite; // ava
+    public Sprite image; // full 
 }

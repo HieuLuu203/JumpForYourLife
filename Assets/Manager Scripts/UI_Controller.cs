@@ -62,6 +62,11 @@ public class UI_Controller : MonoBehaviour
         SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
     }
 
+    public void Continue()
+    {
+        Time.timeScale = 1;
+    }    
+
     public void MainMenu()
     {
         PlayerPrefs.SetInt("score", ScoreManager.Instance.getScore());

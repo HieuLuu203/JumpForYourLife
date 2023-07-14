@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Nhanvat0
   sprite: {fileID: 1917233953, guid: d2a0283f55b071048b160d1bbf21f0e2, type: 3}
+  image: {fileID: 1939447559, guid: 6fd2133d0a005104faeab60d26c3dd30, type: 3}

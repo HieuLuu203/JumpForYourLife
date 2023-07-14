@@ -27,6 +27,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         score = 0;
+        WallSpawnScript.Instance.spawnWall(5);
     }
 
     // Update is called once per frame
